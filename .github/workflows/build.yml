@@ -3,8 +3,11 @@ on: [push]
 
 jobs:
   build:
+    runs-on: macos-13
     steps:
     - uses: actions/checkout@v4
-    - name: install deps
-      run: brew install openssl ninja
-      run: cmake -B build -DCMAKE_BUILD_TYPE=Release -G Ninja -DKERNEL_BUILD_XNU=1
+    - name: build
+      run: | 
+        brew install openssl ninja
+        cmake -B build -DCMAKE_BUILD_TYPE=Release -G Ninja -DKERNEL_BUILD_XNU=1
+        
