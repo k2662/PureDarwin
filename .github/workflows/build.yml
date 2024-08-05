@@ -11,3 +11,7 @@ jobs:
         brew install openssl ninja
         cmake -B build -DCMAKE_BUILD_TYPE=Release -G Ninja -DKERNEL_BUILD_XNU=1
         ninja -C build
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.3.5
+      with:
+        path: ./build
